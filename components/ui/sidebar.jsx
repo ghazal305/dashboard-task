@@ -13,7 +13,7 @@ export default function Sidebar({ open, onClose }) {
 
   return (
     <aside
-      className={`fixed left-0 top-0 h-full z-40 transform bg-white border-r p-4 transition-transform duration-200
+      className={`fixed left-0 top-0 h-full z-40 transform bg-gray-700  border-r p-4 transition-transform duration-200
         ${
           open ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0 md:static md:w-64`}
