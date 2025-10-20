@@ -8,51 +8,31 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-function RadarChartPlot() {
-  const data = [
-    {
-      day: "Monday",
-      amount: 500,
-    },
-    {
-      day: "Tuesday",
-      amount: 300,
-    },
-    {
-      day: "Wednesday",
-      amount: 240,
-    },
-    {
-      day: "Thursday",
-      amount: 230,
-    },
-    {
-      day: "Friday",
-      amount: 150,
-    },
-    {
-      day: "Saturday",
-      amount: 300,
-    },
-  ];
+function RadarChartPlot({data}) {
+   if (!data || data.length === 0) {
+    return (
+      <div className="flex justify-center items-center h-full text-gray-400">
+        No data available
+      </div>
+    );
+  }
+
   return (
-    <>
-      <ResponsiveContainer width="100%" height="100%">
-        <RadarChart outerRadius={90} width={730} height={250} data={data}>
-          <PolarGrid />
-          <PolarAngleAxis dataKey="day" />
-          <Radar
-            name="Orders"
-            dataKey="amount"
-            stroke="#82ca9d"
-            fill="#82ca9d"
-            fillOpacity={0.6}
-          />
-          <Legend />
-          <Tooltip />
-        </RadarChart>
-      </ResponsiveContainer>
-    </>
+    <ResponsiveContainer width="100%" height="100%">
+      <RadarChart outerRadius={90} width={730} height={250} data={data}>
+        <PolarGrid />
+        <PolarAngleAxis dataKey="name" />
+        <Radar
+          name="Stock"
+          dataKey="stock"
+          stroke="#82ca9d"
+          fill="#82ca9d"
+          fillOpacity={0.6}
+        />
+        <Legend />
+        <Tooltip />
+      </RadarChart>
+    </ResponsiveContainer>
   );
 }
 
